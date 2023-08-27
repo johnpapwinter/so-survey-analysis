@@ -19,9 +19,6 @@ columns_to_keep = ['Employment', 'Country', 'LanguageHaveWorkedWith', 'DatabaseH
 filtered_df = df[columns_to_keep]
 
 # FILTER THE DATAFRAME ONLY FOR THE COUNTRY NEEDED AND FULL-TIME EMPLOYMENT
-countries = ['France', 'Ireland', 'Germany', 'Netherlands', 'Canada', 'Greece', 'Albania', 'Serbia', 'Bulgaria',
-             'Romania', 'New Zealand', 'Japan', 'Singapore', 'Australia', 'Austria', 'Spain', 'Portugal', 'Turkey',
-             'Croatia', 'Poland', 'Czech Republic', 'Italy']
 target_country = 'France'
 target_employment = 'Employed, full-time'
 employees_df = filtered_df['Employment'] == target_employment
@@ -49,11 +46,5 @@ all_databases = ";".join(target_df['DatabaseHaveWorkedWith'].astype(str))
 all_databases = all_databases.split(";")
 databases_counts = Counter(all_databases)
 print(databases_counts)
-
-# GET A DICT OF ALL TECH TOOLS AND NUMBER OF TIMES APPEARED
-all_tools = ";".join(target_df['ToolsTechHaveWorkedWith'].astype(str))
-all_tools = all_tools.split(";")
-tools_counts = Counter(all_tools)
-print(tools_counts)
 
 
