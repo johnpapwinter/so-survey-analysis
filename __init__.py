@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import constants
 from collections import Counter
 from dotenv import load_dotenv
 
@@ -14,13 +15,12 @@ col_list = df.columns.tolist()
 print(col_list)
 
 # FILTER THE DATAFRAME AND KEEP ONLY THE DESIRED COLUMNS
-columns_to_keep = ['Employment', 'Country', 'LanguageHaveWorkedWith', 'DatabaseHaveWorkedWith',
-                   'WebframeHaveWorkedWith', 'ToolsTechHaveWorkedWith']
+columns_to_keep = constants.COLUMNS_SURVEY_21_22_23_LIST
 filtered_df = df[columns_to_keep]
 
 # FILTER THE DATAFRAME ONLY FOR THE COUNTRY NEEDED AND FULL-TIME EMPLOYMENT
 target_country = 'France'
-target_employment = 'Employed, full-time'
+target_employment = constants.EMPLOYMENT_18_19_20_21_22_23
 employees_df = filtered_df['Employment'] == target_employment
 target_df = filtered_df[(filtered_df['Country'] == target_country) & (filtered_df['Employment'] == target_employment)]
 
