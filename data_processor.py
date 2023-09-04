@@ -8,7 +8,8 @@ load_dotenv()
 
 list_of_countries = constants.COUNTRIES_LIST
 final_df = pd.DataFrame()
-files = [os.getenv('SURVEY_2022'), os.getenv('SURVEY_2023')]
+files = [os.getenv('SURVEY_2023'), os.getenv('SURVEY_2022'), os.getenv('SURVEY_2021'), os.getenv('SURVEY_2020'),
+         os.getenv('SURVEY_2019'), os.getenv('SURVEY_2018'), os.getenv('SURVEY_2017')]
 column_name_mappings = {"LanguageHaveWorkedWith": "Language"}
 
 for file in files:
