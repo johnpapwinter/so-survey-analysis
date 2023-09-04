@@ -2,8 +2,6 @@ import os
 import pandas as pd
 import constants
 from dotenv import load_dotenv
-from collections import Counter
-from utils import generate_answer_counter
 
 load_dotenv()
 
@@ -16,13 +14,14 @@ column_name_mappings = {"LanguageHaveWorkedWith": "Language"}
 for file in files:
     df = pd.read_csv(file)
 
-    columns_to_keep = ['Employment', 'Country', 'LanguageHaveWorkedWith',
-                       'DatabaseHaveWorkedWith', 'WebframeHaveWorkedWith']
-    df = df[columns_to_keep]
     target_employment = 'Employed, full-time'
     df = df[(df['Country'] == 'Greece') & (df['Employment'] == target_employment)]
+
+    total_respondents = df.shape[0]
     df = df['LanguageHaveWorkedWith'].str.split(';').explode()
     df = df.value_counts().reset_index()
+
+    df[df.columns[-1]] = (df[df.columns[-1]] / total_respondents) * 100
 
     filename = f"Survey_{file[-8:-4]}"
 
