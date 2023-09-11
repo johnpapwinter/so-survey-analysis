@@ -1,6 +1,8 @@
 import pandas as pd
 from dotenv import load_dotenv
+
 from languages_cleaner import clean_languages_dataframe
+from framework_cleaner import clean_framework_dataframe
 
 load_dotenv()
 
@@ -55,8 +57,8 @@ def analyze_survey_framework(country: str, files):
         df = df.value_counts().reset_index()
 
         df[df.columns[-1]] = (df[df.columns[-1]] / total_respondents) * 100
-        # df = clean_languages_dataframe(df)
         df['WebframeHaveWorkedWith'] = df['WebframeHaveWorkedWith'].str.lower()
+        df = clean_framework_dataframe(df)
 
         filename = f"Survey_{file[-8:-4]}"
 

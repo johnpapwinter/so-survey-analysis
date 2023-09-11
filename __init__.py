@@ -18,9 +18,9 @@ files = [os.getenv('SURVEY_2023'),
 for country in list_of_countries:
     print(f"RESULTS FOR {country.upper()}")
     # analyze_survey_language(country, files)
+    analyze_survey_framework(country, files)
     print('----------------------')
     print('----------------------')
     print('----------------------')
 
-analyze_survey_framework('Greece', files)
 
