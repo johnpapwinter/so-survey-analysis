@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import constants
 from dotenv import load_dotenv
-from utils import generate_answer_counter
+from languages_cleaner import generate_answer_counter
 from excel_service import export_to_excel
 
 load_dotenv()

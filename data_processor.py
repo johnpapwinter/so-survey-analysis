@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import constants
 from dotenv import load_dotenv
-from utils import clean_languages_dataframe
+from languages_cleaner import clean_languages_dataframe
 
 load_dotenv()
 

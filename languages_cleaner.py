@@ -1,5 +1,4 @@
 import pandas as pd
-from collections import Counter
 
 
 def clean_languages_dataframe(dataframe):
