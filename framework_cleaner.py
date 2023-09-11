@@ -5,6 +5,7 @@ def clean_framework_dataframe(dataframe):
     dataframe = _handle_angular(dataframe)
     dataframe = _handle_react(dataframe)
     dataframe = _handle_angular(dataframe)
+    dataframe = _handle_spring(dataframe)
     dataframe = _handle_asp_net_core(dataframe)
 
     return dataframe
