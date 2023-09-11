@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import constants
 from dotenv import load_dotenv
-from data_processor import analyze_survey_language
+from data_processor import analyze_survey_language, analyze_survey_framework
 from excel_service import export_to_excel
 
 load_dotenv()
@@ -17,10 +17,10 @@ files = [os.getenv('SURVEY_2023'),
 
 for country in list_of_countries:
     print(f"RESULTS FOR {country.upper()}")
-    analyze_survey_language(country, files)
+    # analyze_survey_language(country, files)
     print('----------------------')
     print('----------------------')
     print('----------------------')
 
-
+analyze_survey_framework('Greece', files)
 
