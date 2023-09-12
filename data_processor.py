@@ -112,6 +112,6 @@ def analyze_survey_database(country: str, files):
     final_df.fillna(0, inplace=True)
     print(final_df.to_string(index=True))
 
-    with pd.ExcelWriter('output.xlsx') as excel_writer:
+    with pd.ExcelWriter('output.xlsx', mode='a') as excel_writer:
         final_df.to_excel(excel_writer=excel_writer, sheet_name=country, index=False)
 
