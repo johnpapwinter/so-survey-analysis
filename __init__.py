@@ -24,4 +24,4 @@ files = [os.getenv('SURVEY_2023'),
 #     print('----------------------')
 #     print('----------------------')
 
-analyze_survey_database(country='Greece', files=files)
+analyze_survey_database(country='Japan', files=files)
