@@ -3,7 +3,6 @@ import pandas as pd
 import constants
 from dotenv import load_dotenv
 from data_processor import analyze_survey_language, analyze_survey_framework, analyze_survey_database
-from excel_service import export_to_excel
 
 load_dotenv()
 

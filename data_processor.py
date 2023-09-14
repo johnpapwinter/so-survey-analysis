@@ -43,7 +43,6 @@ def analyze_survey_language(country: str, files):
 
     final_df.rename(columns=column_name_mappings, inplace=True)
     final_df.fillna(0, inplace=True)
-    # print(final_df.to_string(index=True))
 
     export_to_excel(final_df, country, excel_filename)
 
@@ -81,7 +80,6 @@ def analyze_survey_framework(country: str, files):
 
     final_df.rename(columns=column_name_mappings, inplace=True)
     final_df.fillna(0, inplace=True)
-    # print(final_df.to_string(index=True))
 
     export_to_excel(final_df, country, excel_filename)
 
@@ -119,7 +117,6 @@ def analyze_survey_database(country: str, files):
 
     final_df.rename(columns=column_name_mappings, inplace=True)
     final_df.fillna(0, inplace=True)
-    # print(final_df.to_string(index=True))
 
     export_to_excel(final_df, country, excel_filename)
 
