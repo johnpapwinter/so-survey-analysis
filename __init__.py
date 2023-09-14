@@ -15,13 +15,11 @@ files = [os.getenv('SURVEY_2023'),
          os.getenv('SURVEY_2019'),
          os.getenv('SURVEY_2018')]
 
-# for country in list_of_countries:
-#     print(f"RESULTS FOR {country.upper()}")
-#     # analyze_survey_language(country, files)
-#     analyze_survey_framework(country, files)
-#     analyze_survey_database(country, files)
-#     print('----------------------')
-#     print('----------------------')
-#     print('----------------------')
+for country in list_of_countries:
+    analyze_survey_language(country, files)
+    analyze_survey_framework(country, files)
+    analyze_survey_database(country, files)
+    print('----------------------')
+    print(f"RESULTS READY FOR {country.upper()}")
+    print('----------------------')
 
-analyze_survey_database(country='Greece', files=files)

@@ -1,3 +1,5 @@
+import os.path
+
 import pandas as pd
 from dotenv import load_dotenv
 
@@ -11,6 +13,7 @@ load_dotenv()
 def analyze_survey_language(country: str, files):
     final_df = pd.DataFrame()
     column_name_mappings = {"LanguageHaveWorkedWith": "Language"}
+    excel_filename = 'languages.xlsx'
 
     for file in files:
         df = pd.read_csv(file)
@@ -40,12 +43,15 @@ def analyze_survey_language(country: str, files):
 
     final_df.rename(columns=column_name_mappings, inplace=True)
     final_df.fillna(0, inplace=True)
-    print(final_df.to_string(index=True))
+    # print(final_df.to_string(index=True))
+
+    export_to_excel(final_df, country, excel_filename)
 
 
 def analyze_survey_framework(country: str, files):
     final_df = pd.DataFrame()
     column_name_mappings = {"WebframeHaveWorkedWith": "Framework"}
+    excel_filename = 'frameworks.xlsx'
 
     for file in files:
         df = pd.read_csv(file)
@@ -75,12 +81,15 @@ def analyze_survey_framework(country: str, files):
 
     final_df.rename(columns=column_name_mappings, inplace=True)
     final_df.fillna(0, inplace=True)
-    print(final_df.to_string(index=True))
+    # print(final_df.to_string(index=True))
+
+    export_to_excel(final_df, country, excel_filename)
 
 
 def analyze_survey_database(country: str, files):
     final_df = pd.DataFrame()
     column_name_mappings = {"DatabaseHaveWorkedWith": "Database"}
+    excel_filename = 'databases.xlsx'
 
     for file in files:
         df = pd.read_csv(file)
@@ -110,8 +119,17 @@ def analyze_survey_database(country: str, files):
 
     final_df.rename(columns=column_name_mappings, inplace=True)
     final_df.fillna(0, inplace=True)
-    print(final_df.to_string(index=True))
+    # print(final_df.to_string(index=True))
 
-    with pd.ExcelWriter('output.xlsx', mode='a') as excel_writer:
-        final_df.to_excel(excel_writer=excel_writer, sheet_name=country, index=False)
+    export_to_excel(final_df, country, excel_filename)
+
+
+def export_to_excel(dataframe, country: str, excel_filename: str):
+    if not os.path.exists(excel_filename):
+        with pd.ExcelWriter(excel_filename, engine='openpyxl') as excel_writer:
+            dataframe.to_excel(excel_writer=excel_writer, sheet_name=country, index=False)
+    else:
+        with pd.ExcelWriter(excel_filename, mode='a', engine='openpyxl') as excel_writer:
+            dataframe.to_excel(excel_writer=excel_writer, sheet_name=country, index=False)
+
 
