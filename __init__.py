@@ -7,12 +7,12 @@ from data_processor import analyze_survey_language, analyze_survey_framework, an
 load_dotenv()
 
 list_of_countries = constants.COUNTRIES_LIST
-files = [os.getenv('SURVEY_2023'),
-         os.getenv('SURVEY_2022'),
-         os.getenv('SURVEY_2021'),
-         os.getenv('SURVEY_2020'),
+files = [os.getenv('SURVEY_2018'),
          os.getenv('SURVEY_2019'),
-         os.getenv('SURVEY_2018')]
+         os.getenv('SURVEY_2020'),
+         os.getenv('SURVEY_2021'),
+         os.getenv('SURVEY_2022'),
+         os.getenv('SURVEY_2023')]
 
 for country in list_of_countries:
     analyze_survey_language(country, files)
