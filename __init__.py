@@ -3,6 +3,7 @@ import pandas as pd
 import constants
 from dotenv import load_dotenv
 from data_processor import analyze_survey_language, analyze_survey_framework, analyze_survey_database
+from data_visualizer import visualize_data
 
 load_dotenv()
 
@@ -21,4 +22,9 @@ for country in list_of_countries:
     print('----------------------')
     print(f"RESULTS READY FOR {country.upper()}")
     print('----------------------')
+
+
+visualize_data('languages.xlsx', 'Language')
+visualize_data('frameworks.xlsx', 'Framework')
+visualize_data('databases.xlsx', 'Database')
 
